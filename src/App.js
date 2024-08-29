@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [fullName, setFullName] = useState('');
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (firstName && lastName) {
+      setFullName(`${firstName} ${lastName}`);
+    }
+  };
+
+  // Handle input changes
+  const handleFirstNameChange = (e) => setFirstName(e.target.value);
+  const handleLastNameChange = (e) => setLastName(e.target.value);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <input
+            type='text'
+            placeholder='First Name'
+            value={firstName}
+            onChange={handleFirstNameChange}
+            required
+          />
+        </div>
+        <div style={{ marginTop: '10px' }}>
+          <input
+            type='text'
+            placeholder='Last Name'
+            value={lastName}
+            onChange={handleLastNameChange}
+            required
+          />
+        </div>
+        <div style={{ marginTop: '10px' }}>
+          <button type='submit' disabled={!firstName || !lastName}>
+            Submit
+          </button>
+        </div>
+      </form>
+      {fullName && <h2 style={{ marginTop: '20px' }}>Full Name: {fullName}</h2>}
     </div>
   );
 }
