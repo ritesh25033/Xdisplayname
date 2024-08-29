@@ -40,9 +40,7 @@ function App() {
           />
         </div>
         <div style={{ marginTop: '10px' }}>
-          <button type='submit' disabled={!firstName || !lastName}>
-            Submit
-          </button>
+          <button type='submit'>Submit</button>
         </div>
       </form>
       {fullName && <h2 style={{ marginTop: '20px' }}>Full Name: {fullName}</h2>}
