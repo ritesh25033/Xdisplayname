@@ -19,20 +19,21 @@ function App() {
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h1>Full Name Display</h1>
       <form onSubmit={handleSubmit}>
         <div>
+          <label>First Name:</label>
           <input
             type='text'
-            placeholder='First Name'
             value={firstName}
             onChange={handleFirstNameChange}
             required
           />
         </div>
         <div style={{ marginTop: '10px' }}>
+          <label>Last Name:</label>
           <input
             type='text'
-            placeholder='Last Name'
             value={lastName}
             onChange={handleLastNameChange}
             required
