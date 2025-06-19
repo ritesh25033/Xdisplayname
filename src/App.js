@@ -5,7 +5,7 @@ function App() {
   const [lastName, setLastName] = useState('');
   const [fullName, setFullName] = useState('');
 
-  // Handle form submission
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (firstName && lastName) {
